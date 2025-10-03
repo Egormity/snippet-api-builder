@@ -1,5 +1,3 @@
-# API Functionality Documentation
-
 ## Overview
 
 This project provides a comprehensive API layer with built-in authentication, interceptors, query/mutation hooks, and type-safe API builders for React applications using TypeScript.
