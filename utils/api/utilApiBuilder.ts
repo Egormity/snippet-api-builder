@@ -9,7 +9,6 @@ import {
 
 import { Nullable, RecursiveNullUndefinedPartialAble, RecursiveNullable, TMethodParams } from "@types";
 
-// type TMethodType = "useApiQuery" | "useApiInfiniteQuery" | "useApiMutation";
 type TMethodInner<TType = any> = TType extends "useApiQuery"
 	? {
 			type: "useApiQuery";
@@ -17,65 +16,59 @@ type TMethodInner<TType = any> = TType extends "useApiQuery"
 			urlReplaceParamsDTO: Nullable<Record<string, unknown>>;
 			paramsDTO: Nullable<TMethodParams>;
 			responseDTO: unknown;
-		}
+	  }
 	: TType extends "useApiInfiniteQuery"
-		? {
-				type: "useApiInfiniteQuery";
-				queryProps: Nullable<Partial<TUseApiInfiniteQueryProps>>;
-				paramsDTO: Nullable<TMethodParams>;
-				responseDTOInfiniteQueryArrayInner: unknown;
-			}
-		: TType extends "useApiMutation"
-			? {
-					type: "useApiMutation";
-					queryProps: Nullable<Partial<TUseApiMutationNewProps>>;
-					urlReplaceParamsDTO: Nullable<Record<string, unknown>>;
-					mutationResponseDTO: Nullable<unknown>;
-					mutationDTO: unknown;
-				}
-			: never;
+	? {
+			type: "useApiInfiniteQuery";
+			queryProps: Nullable<Partial<TUseApiInfiniteQueryProps>>;
+			paramsDTO: Nullable<TMethodParams>;
+			responseDTOInfiniteQueryArrayInner: unknown;
+	  }
+	: TType extends "useApiMutation"
+	? {
+			type: "useApiMutation";
+			queryProps: Nullable<Partial<TUseApiMutationNewProps>>;
+			urlReplaceParamsDTO: Nullable<Record<string, unknown>>;
+			mutationResponseDTO: Nullable<unknown>;
+			mutationDTO: unknown;
+	  }
+	: never;
 
 type TMethodHook<T extends TMethodInner<unknown>> = T["type"] extends "useApiQuery"
 	? (
 			queryProps?: Partial<
 				TUseApiQueryProps<RecursiveNullable<T["responseDTO"]>, T["paramsDTO"], T["urlReplaceParamsDTO"]>
-			>,
-		) => ReturnType<
+			>
+	  ) => ReturnType<
 			typeof useApiQuery<RecursiveNullable<T["responseDTO"]>, T["paramsDTO"], T["urlReplaceParamsDTO"]>
-		>
+	  >
 	: T["type"] extends "useApiInfiniteQuery"
-		? (
-				queryProps?: Partial<
-					TUseApiInfiniteQueryProps<
-						RecursiveNullable<T["responseDTOInfiniteQueryArrayInner"]>,
-						T["paramsDTO"]
-					>
-				>,
-			) => ReturnType<
-				typeof useApiInfiniteQuery<
-					RecursiveNullable<T["responseDTOInfiniteQueryArrayInner"]>,
-					T["paramsDTO"]
+	? (
+			queryProps?: Partial<
+				TUseApiInfiniteQueryProps<RecursiveNullable<T["responseDTOInfiniteQueryArrayInner"]>, T["paramsDTO"]>
+			>
+	  ) => ReturnType<
+			typeof useApiInfiniteQuery<RecursiveNullable<T["responseDTOInfiniteQueryArrayInner"]>, T["paramsDTO"]>
+	  >
+	: T["type"] extends "useApiMutation"
+	? (
+			queryProps?: Partial<
+				TUseApiMutationNewProps<
+					RecursiveNullUndefinedPartialAble<T["mutationDTO"]>,
+					RecursiveNullable<T["mutationResponseDTO"]>,
+					T["paramsDTO"],
+					T["urlReplaceParamsDTO"]
 				>
 			>
-		: T["type"] extends "useApiMutation"
-			? (
-					queryProps?: Partial<
-						TUseApiMutationNewProps<
-							RecursiveNullUndefinedPartialAble<T["mutationDTO"]>,
-							RecursiveNullable<T["mutationResponseDTO"]>,
-							T["paramsDTO"],
-							T["urlReplaceParamsDTO"]
-						>
-					>,
-				) => ReturnType<
-					typeof useApiMutationNew<
-						RecursiveNullUndefinedPartialAble<T["mutationDTO"]>,
-						RecursiveNullable<T["mutationResponseDTO"]>,
-						T["paramsDTO"],
-						T["urlReplaceParamsDTO"]
-					>
-				>
-			: never;
+	  ) => ReturnType<
+			typeof useApiMutationNew<
+				RecursiveNullUndefinedPartialAble<T["mutationDTO"]>,
+				RecursiveNullable<T["mutationResponseDTO"]>,
+				T["paramsDTO"],
+				T["urlReplaceParamsDTO"]
+			>
+	  >
+	: never;
 
 type TMethodsHashSetItem<TMethod extends TMethodInner<unknown>> = TMethod & {
 	method: TMethodHook<TMethod>;
@@ -92,7 +85,7 @@ type TMethodsHashSet<TMethods extends TMethodsRecord> = {
 export class UtilApiBuilder<
 	TMethods extends TMethodsRecord = any,
 	TBaseUrl extends string = any,
-	TApiName extends string = any,
+	TApiName extends string = any
 > {
 	public readonly basUrl: TBaseUrl;
 	public readonly apiName: TApiName;
