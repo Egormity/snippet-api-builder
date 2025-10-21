@@ -78,7 +78,6 @@ type TMethodsHashSetItem<TMethod extends TMethodInner<unknown>> = TMethod & {
 type TMethodsRecord = Record<string, TMethodInner>;
 
 type TMethodsHashSet<TMethods extends TMethodsRecord> = {
-	// @ts-ignore
 	[K in keyof TMethods]: TMethodsHashSetItem<TMethods[K]>;
 };
 
@@ -111,16 +110,13 @@ export class UtilApiBuilder<
 		if (this.methods[name]) throw new Error(`Method "${name}" already exists`);
 
 		// Get the hook
-		// @ts-ignore
 		const methodHook: TMethodsHashSetItem<typeof method, TBaseUrl> = (() => {
 			const queryKey = this.apiName + "/" + name;
 			switch (method.type) {
 				case "useApiQuery":
 					return {
 						...method,
-						// @ts-ignore
 						method: (queryProps?: Parameters<TMethodHook<typeof method>>[0]) =>
-							// @ts-ignore
 							useApiQuery<ReturnType<TMethodHook<typeof method>>>({
 								...method,
 								...method.queryProps,
@@ -133,9 +129,7 @@ export class UtilApiBuilder<
 				case "useApiInfiniteQuery":
 					return {
 						...method,
-						// @ts-ignore
 						method: (queryProps?: Parameters<TMethodHook<typeof method>>[0]) =>
-							// @ts-ignore
 							useApiInfiniteQuery<ReturnType<TMethodHook<typeof method>>>({
 								...method,
 								...method.queryProps,
@@ -148,9 +142,7 @@ export class UtilApiBuilder<
 				case "useApiMutation":
 					return {
 						...method,
-						// @ts-ignore
 						method: (queryProps?: Parameters<TMethodHook<typeof method>>[0]) =>
-							// @ts-ignore
 							useApiMutationNew<ReturnType<TMethodHook<typeof method>>>({
 								...method,
 								...method.queryProps,
