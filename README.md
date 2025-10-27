@@ -13,12 +13,6 @@ A comprehensive TypeScript-based API client builder for React applications that 
 - 🔄 **Auto-Invalidation** - Smart cache invalidation on mutations
 - 📱 **Offline Support** - Mock data support for development
 
-## Installation
-
-```bash
-npm install axios @tanstack/react-query
-```
-
 ## Quick Start
 
 ### 1. Define Your API

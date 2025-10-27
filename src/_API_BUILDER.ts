@@ -116,8 +116,8 @@ export class ApiBuilder<
 				case "useApiQuery":
 					return {
 						...method,
-						method: (queryProps?: Parameters<TMethodHook<typeof method>>[0]) =>
-							useApiQuery<ReturnType<TMethodHook<typeof method>>>({
+						method: queryProps =>
+							useApiQuery({
 								...method,
 								...method.queryProps,
 								...queryProps,
@@ -129,8 +129,8 @@ export class ApiBuilder<
 				case "useApiInfiniteQuery":
 					return {
 						...method,
-						method: (queryProps?: Parameters<TMethodHook<typeof method>>[0]) =>
-							useApiInfiniteQuery<ReturnType<TMethodHook<typeof method>>>({
+						method: queryProps =>
+							useApiInfiniteQuery({
 								...method,
 								...method.queryProps,
 								...queryProps,
@@ -142,8 +142,8 @@ export class ApiBuilder<
 				case "useApiMutation":
 					return {
 						...method,
-						method: (queryProps?: Parameters<TMethodHook<typeof method>>[0]) =>
-							useApiMutation<ReturnType<TMethodHook<typeof method>>>({
+						method: queryProps =>
+							useApiMutation({
 								...method,
 								...method.queryProps,
 								...queryProps,
