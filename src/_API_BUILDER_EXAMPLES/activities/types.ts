@@ -1,5 +1,5 @@
 import { TApiTypesBuilder } from "../../types";
 
-import { apiOnlineActivities } from "./api";
+import { apiActivities } from "./api";
 
-export type TApiOnlineActivities = TApiTypesBuilder<typeof apiOnlineActivities>;
+export type TapiActivities = TApiTypesBuilder<typeof apiActivities>;

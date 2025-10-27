@@ -1,10 +1,10 @@
-import { ApiBuilder } from "../../API_BUILDER";
+import { ApiBuilder } from "../../_API_BUILDER";
 import { ACTIVITY_BY_ID_DTO } from "../../constants";
 import { utilUserGetCurrentCoordinates } from "../../utils";
 
-export const apiOnlineActivities = new ApiBuilder({
+export const apiActivities = new ApiBuilder({
 	basUrl: "/activities",
-	apiName: "apiOnlineActivities",
+	apiName: "apiActivities",
 	methods: {
 		getInfinite: {
 			type: "useApiInfiniteQuery",
@@ -52,9 +52,9 @@ export const apiOnlineActivities = new ApiBuilder({
 				method: "post",
 				successMessage: "Активность создана!",
 				onSuccessInvalidateQueryKeys: [
-					["apiOnlineActivities/getInfinite"],
-					["apiOnlineActivities/getInfiniteOneById"],
-					["apiOnlineActivities/getInfiniteForCurrent"],
+					["apiActivities/getInfinite"],
+					["apiActivities/getInfiniteOneById"],
+					["apiActivities/getInfiniteForCurrent"],
 				],
 			},
 			urlReplaceParamsDTO: null,
@@ -136,9 +136,9 @@ export const apiOnlineActivities = new ApiBuilder({
 				url: "/ ",
 				successMessage: "Активность обновлена!",
 				onSuccessInvalidateQueryKeys: [
-					["apiOnlineActivities/getInfinite"],
-					["apiOnlineActivities/getInfiniteOneById"],
-					["apiOnlineActivities/getInfiniteForCurrent"],
+					["apiActivities/getInfinite"],
+					["apiActivities/getInfiniteOneById"],
+					["apiActivities/getInfiniteForCurrent"],
 				],
 			},
 			mutationResponseDTO: null,
@@ -205,9 +205,9 @@ export const apiOnlineActivities = new ApiBuilder({
 				url: "/:id",
 				successMessage: "Активность обновлена!",
 				onSuccessInvalidateQueryKeys: [
-					["apiOnlineActivities/getInfinite"],
-					["apiOnlineActivities/getInfiniteOneById"],
-					["apiOnlineActivities/getInfiniteForCurrent"],
+					["apiActivities/getInfinite"],
+					["apiActivities/getInfiniteOneById"],
+					["apiActivities/getInfiniteForCurrent"],
 				],
 			},
 			mutationResponseDTO: null,
@@ -242,9 +242,9 @@ export const apiOnlineActivities = new ApiBuilder({
 				url: "/:id",
 				successMessage: "Активность удалена!",
 				onSuccessInvalidateQueryKeys: [
-					["apiOnlineActivities/getInfinite"],
-					["apiOnlineActivities/getInfiniteOneById"],
-					["apiOnlineActivities/getInfiniteForCurrent"],
+					["apiActivities/getInfinite"],
+					["apiActivities/getInfiniteOneById"],
+					["apiActivities/getInfiniteForCurrent"],
 				],
 			},
 			urlReplaceParamsDTO: { id: "string" },
@@ -266,9 +266,9 @@ export const apiOnlineActivities = new ApiBuilder({
 					};
 				},
 				onSuccessInvalidateQueryKeys: [
-					["apiOnlineActivities/getInfinite"],
-					["apiOnlineActivities/getInfiniteOneById"],
-					["apiOnlineActivities/getInfiniteForCurrent"],
+					["apiActivities/getInfinite"],
+					["apiActivities/getInfiniteOneById"],
+					["apiActivities/getInfiniteForCurrent"],
 				],
 			},
 			urlReplaceParamsDTO: { activityId: "string" },
@@ -286,7 +286,7 @@ export const apiOnlineActivities = new ApiBuilder({
 				method: "post",
 				url: "/:activityId/medias",
 				successMessage: "Активность обновлена!",
-				onSuccessInvalidateQueryKeys: [["apiOnlineActivities/getInfiniteOneById"]],
+				onSuccessInvalidateQueryKeys: [["apiActivities/getInfiniteOneById"]],
 			},
 			urlReplaceParamsDTO: { activityId: "string" },
 			mutationResponseDTO: null,
@@ -307,7 +307,7 @@ export const apiOnlineActivities = new ApiBuilder({
 				url: "/:activityId/medias/:mediaId",
 				successMessage: "Активность обновлена!",
 				onSuccessInvalidateQueryKeys: [
-					["apiOnlineActivities/getInfiniteOneById", "apiOnlineActivities/getInfiniteForCurrent"],
+					["apiActivities/getInfiniteOneById", "apiActivities/getInfiniteForCurrent"],
 				],
 			},
 			urlReplaceParamsDTO: { activityId: "string", mediaId: "string" },
@@ -321,7 +321,7 @@ export const apiOnlineActivities = new ApiBuilder({
 				url: "/:activityId/photos",
 				successMessage: "Активность обновлена!",
 				onSuccessInvalidateQueryKeys: [
-					["apiOnlineActivities/getInfiniteOneById", "apiOnlineActivities/getInfiniteForCurrent"],
+					["apiActivities/getInfiniteOneById", "apiActivities/getInfiniteForCurrent"],
 				],
 			},
 			urlReplaceParamsDTO: { activityId: "string" },
@@ -343,7 +343,7 @@ export const apiOnlineActivities = new ApiBuilder({
 				url: "/:id/photos/:photoId",
 				successMessage: "Активность обновлена!",
 				onSuccessInvalidateQueryKeys: [
-					["apiOnlineActivities/getInfiniteOneById", "apiOnlineActivities/getInfiniteForCurrent"],
+					["apiActivities/getInfiniteOneById", "apiActivities/getInfiniteForCurrent"],
 				],
 			},
 			urlReplaceParamsDTO: { activityId: "string", photoId: "string" },
@@ -357,7 +357,7 @@ export const apiOnlineActivities = new ApiBuilder({
 				url: "/calc-distance",
 				isSuccessMessage: false,
 				onSuccessInvalidateQueryKeys: [
-					["apiOnlineActivities/getInfiniteOneById", "apiOnlineActivities/getInfiniteForCurrent"],
+					["apiActivities/getInfiniteOneById", "apiActivities/getInfiniteForCurrent"],
 				],
 			},
 			urlReplaceParamsDTO: null,
@@ -383,9 +383,9 @@ export const apiOnlineActivities = new ApiBuilder({
 				url: "/:id/copy",
 				successMessage: "Активность скопирована!",
 				onSuccessInvalidateQueryKeys: [
-					["apiOnlineActivities/getInfinite"],
-					["apiOnlineActivities/getInfiniteOneById"],
-					["apiOnlineActivities/getInfiniteForCurrent"],
+					["apiActivities/getInfinite"],
+					["apiActivities/getInfiniteOneById"],
+					["apiActivities/getInfiniteForCurrent"],
 				],
 			},
 			urlReplaceParamsDTO: null,
@@ -469,9 +469,9 @@ export const apiOnlineActivities = new ApiBuilder({
 				url: "/transfer",
 				successMessage: "Активност(ь/и) обновлен(а/ы)!",
 				onSuccessInvalidateQueryKeys: [
-					["apiOnlineActivities/getInfinite"],
-					["apiOnlineActivities/getInfiniteOneById"],
-					["apiOnlineActivities/getInfiniteForCurrent"],
+					["apiActivities/getInfinite"],
+					["apiActivities/getInfiniteOneById"],
+					["apiActivities/getInfiniteForCurrent"],
 				],
 			},
 			urlReplaceParamsDTO: null,

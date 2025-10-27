@@ -1,8 +1,8 @@
-import { ApiBuilder } from "../../API_BUILDER";
+import { ApiBuilder } from "../../_API_BUILDER";
 
 export const apiAuth = new ApiBuilder({
 	basUrl: "/auth",
-	apiName: "apiAuthAuth",
+	apiName: "apiAuth",
 	methods: {
 		postConfirmCode: {
 			type: "useApiMutation",
