@@ -1,0 +1,28 @@
+{
+  "name": "snippet-api-builder",
+  "version": "1.0.0",
+  "description": "This project provides a comprehensive API layer with built-in authentication, interceptors, query/mutation hooks, and type-safe API builders for React applications using TypeScript.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Egormity/snippet-api-builder.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Egormity/snippet-api-builder/issues"
+  },
+  "homepage": "https://github.com/Egormity/snippet-api-builder#readme",
+  "dependencies": {
+    "@tanstack/react-query": "^5.90.5",
+    "@tanstack/react-router": "^1.133.32",
+    "axios": "^1.12.2",
+    "date-fns": "^4.1.0",
+    "react": "^19.2.0"
+  }
+}
